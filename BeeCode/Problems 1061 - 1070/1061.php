@@ -27,17 +27,14 @@ $horas_total = $hora_final - $hora_inicio;
 $minuto_total = $minuto_final - $minuto_inicio;
 $segundo_total = $segundo_final - $segundo_inicial;
 
-if ($segundo_total < 0 && $minuto_total == 0) {
-    $minuto_total = 60 + ($segundo_total);
+if ($segundo_total < 0) {
+    $minuto_total = $minuto_total + (- 1);
     $segundo_total = 60 + ($segundo_total);
-    $horas_total = $horas_total - 1;
-} else {
-    $minuto_total = 60 - ($minuto_total);
 }
 
-if ($minuto_final < 0 && $horas_total == 0) {
-    $horas_total = 24 - 1;
-    $minuto_final = 60 + ($minuto_final);
+if ($minuto_total < 0) {
+    $horas_total = $horas_total - 1;
+    $minuto_total = 60 + ($minuto_total);
 }
 
 if ($horas_total < 0) {
