@@ -15,14 +15,33 @@ Imprima, para cada caso de teste, quantos anos levará para que a cidade A ultra
 
 */
 
+$testes = (int)readline();
 
-$T = (int)readline();
-
-for ($i = 0; $i < $T; $i++) {
+for ($i = 0; $i < $testes; $i++) {
     $entrada = readline();
+    $entrada = explode(' ', $entrada);
 
-    $PA = intval($entrada[0]);
-    $PB = intval($entrada[1]);
-    $G1 = intval($entrada[2]);
-    $G2 = intval($entrada[3]);
+    $people_A = intval($entrada[0]);
+    $people_B = intval($entrada[1]);
+    $G1 = floatval($entrada[2]);
+    $G2 = floatval($entrada[3]);
+    $anos = 0;
+
+    while ($people_A <= $people_B) {
+        // Pegando a quantidade de pessoas que cresce por ano.
+        $crescimento_A = intval(($people_A / 100) * $G1);
+        $crescimento_B = intval(($people_B / 100) * $G2);
+        $people_A += $crescimento_A;
+        $people_B += $crescimento_B;
+        $anos++;
+        if ($anos > 100) {
+            break;
+        }
+    }
+
+    if ($anos <= 100) {
+        echo "$anos anos \n";
+    } else {
+        echo "Mais de 1 seculo.\n";
+    }
 }
