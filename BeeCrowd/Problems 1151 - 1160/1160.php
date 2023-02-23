@@ -28,7 +28,6 @@ for ($i = 0; $i < $testes; $i++) {
     $anos = 0;
 
     while ($people_A <= $people_B) {
-        // Pegando a quantidade de pessoas que cresce por ano.
         $crescimento_A = intval(($people_A / 100) * $G1);
         $crescimento_B = intval(($people_B / 100) * $G2);
         $people_A += $crescimento_A;
@@ -40,7 +39,7 @@ for ($i = 0; $i < $testes; $i++) {
     }
 
     if ($anos <= 100) {
-        echo "$anos anos \n";
+        echo "$anos anos.\n";
     } else {
         echo "Mais de 1 seculo.\n";
     }
